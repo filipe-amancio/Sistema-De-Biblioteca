@@ -1,0 +1,135 @@
+import json   
+import os     
+
+banco = []
+
+def salvar_banco():
+    with open("livros.json", "w", encoding="utf-8") as f:
+        json.dump(banco, f, indent=4, ensure_ascii=False)
+
+def carregar_banco():
+    if os.path.exists("livros.json"):
+        with open("livros.json", "r", encoding="utf-8") as f:
+            dados = json.load(f)
+            banco.extend(dados)
+
+
+def buscar_livro_por_codigo(codigo):
+    for livro in banco:
+        if livro["codigo"] == codigo:
+            return livro
+    return None
+
+
+def cadastrar_livro():
+    print("\n---CADASTRAR LIVRO---")
+    codigo = input("Digite o código do livro: ").strip()
+
+    if buscar_livro_por_codigo(codigo):
+        print(f"Ja existe um livro com o codigo '{codigo}'. Cadastro cancelado.")
+        return
+
+    titulo = input("Digite o título: ").strip()
+    autor  = input("Digite o autor: ").strip()
+
+    novo_livro = {"codigo": codigo, "titulo": titulo, "autor": autor, "status": "disponivel"}
+    banco.append(novo_livro)
+    salvar_banco()  
+    print(f"Livro '{titulo}' cadastrado com sucesso!")
+
+
+def consultar_livro():
+    print("\n---CONSULTAR LIVRO---")
+    codigo = input("Digite o código do livro: ").strip()
+    livro  = buscar_livro_por_codigo(codigo)
+
+    if livro is None:
+        print(f"Livro com código '{codigo}' não encontrado.")
+        return
+
+    print("\nDados do livro:")
+    print(f"Código: {livro['codigo']}")
+    print(f"Título: {livro['titulo']}")
+    print(f"Autor:  {livro['autor']}")
+    print(f"Status: {livro['status']}")
+
+
+def emprestar_livro():
+    print("\n---EMPRESTAR LIVRO---")
+    codigo = input("Digite o código do livro: ").strip()
+    livro  = buscar_livro_por_codigo(codigo)
+
+    if livro is None:
+        print(f"Livro com código '{codigo}' não encontrado.")
+        return
+
+    if livro["status"] == "emprestado":
+        print(f"Livro '{livro['titulo']}' já está emprestado.")
+        return
+
+    livro["status"] = "emprestado"
+    salvar_banco()  
+    print(f"Livro '{livro['titulo']}' emprestado com sucesso!")
+
+
+def devolver_livro():
+    print("\n---DEVOLVER LIVRO---")
+    codigo = input("Digite o código do livro: ").strip()
+    livro  = buscar_livro_por_codigo(codigo)
+
+    if livro is None:
+        print(f"Livro com código '{codigo}' não encontrado.")
+        return
+
+    if livro["status"] == "disponivel":
+        print(f"Livro '{livro['titulo']}' já está disponível.")
+        return
+
+    livro["status"] = "disponivel"
+    salvar_banco()  
+    print(f"Livro '{livro['titulo']}' devolvido com sucesso!")
+
+
+def listar_livros():
+    print("\n---LISTAR LIVROS---")
+
+    if not banco:
+        print("Nenhum livro cadastrado.")
+        return
+
+    for livro in banco:
+        print(f"Código: {livro['codigo']:<10}")
+        print(f"Título: {livro['titulo']:<35}")
+        print(f"Autor:  {livro['autor']:<25}")
+        print(f"Status: {livro['status']}")
+        print("-" * 40)
+
+    print(f"Total de Livros: {len(banco)}")
+
+
+def menu():
+    carregar_banco()  
+    while True:
+        print("\n---BIBLIOTECA---")
+        print("1. Cadastrar Livro")
+        print("2. Consultar Livro")
+        print("3. Emprestar Livro")
+        print("4. Devolver Livro")
+        print("5. Listar Livros")
+        print("6. Sair")
+
+        opcao = input("Digite a opção desejada: ").strip()
+
+        if   opcao == "1": cadastrar_livro()
+        elif opcao == "2": consultar_livro()
+        elif opcao == "3": emprestar_livro()
+        elif opcao == "4": devolver_livro()
+        elif opcao == "5": listar_livros()
+        elif opcao == "6":
+            print("Encerrando sistema. Ate a proxima!")
+            break
+        else:
+            print("Opção inválida. Por favor, tente novamente.")
+
+
+menu()
