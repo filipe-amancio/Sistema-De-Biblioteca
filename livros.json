@@ -1,0 +1,74 @@
+[
+    {
+        "codigo": "001",
+        "titulo": "Dom Quixote",
+        "autor": "Miguel de Cervantes",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "002",
+        "titulo": "Guerra e Paz",
+        "autor": "Leo Tolstoy",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "003",
+        "titulo": "Crime e Castigo",
+        "autor": "Fyodor Dostoevsky",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "101",
+        "titulo": "O Príncipe",
+        "autor": "Niccolò Machiavelli",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "102",
+        "titulo": "A República",
+        "autor": "Plato",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "103",
+        "titulo": "Meditações",
+        "autor": "Marcus Aurelius",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "201",
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "202",
+        "titulo": "Capitães da Areia",
+        "autor": "Jorge Amado",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "203",
+        "titulo": "A Hora da Estrela",
+        "autor": "Clarice Lispector",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "301",
+        "titulo": "Pai Rico, Pai Pobre",
+        "autor": "Robert Kiyosaki",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "302",
+        "titulo": "O Poder do Hábito",
+        "autor": "Charles Duhigg",
+        "status": "disponivel"
+    },
+    {
+        "codigo": "303",
+        "titulo": "Startup Enxuta",
+        "autor": "Eric Ries",
+        "status": "disponivel"
+    }
+]
