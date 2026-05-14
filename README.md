@@ -1,2 +1,21 @@
-# Sistema-De-Biblioteca
-Sistema de biblioteca em Python com menu interativo. Permite cadastrar, consultar, emprestar, devolver e listar livros. Os dados são armazenados em memória (lista de dicionários) com código, título, autor e status. Não possui persistência de dados nem interface gráfica.
+*Sistema de Biblioteca — Python*
+
+Sistema de gerenciamento de biblioteca com menu interativo em terminal, desenvolvido em Python.
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+Funcionalidades
+- ✅ Cadastrar livros
+- ✅ Consultar acervo
+- ✅ Emprestar livros
+- ✅ Devolver livros
+- ✅ Listar todos os livros
+
+Armazenamento
+Os dados são mantidos em memória (lista de dicionários) durante a execução do programa.
+
+Contexto Acadêmico
+Projeto desenvolvido na disciplina de Introdução à Programação — UniCEUB, 2026.
+
+Autor
+**Filipe Amancio** — [GitHub](https://github.com/filipe-amancio) | [LinkedIn](https://www.linkedin.com/in/filipe-amancio-6b8b53406)
